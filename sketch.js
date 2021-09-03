@@ -36,9 +36,9 @@ function preload(){
 
 function setup(){
   
-createCanvas(1200,300);
+createCanvas(windowWidth,windowHeight);
 // Moving background
-path=createSprite(100,150);
+path=createSprite(100,windowHeight/2);
 path.addImage(pathImg);
 path.velocityX = -5;
 
@@ -125,7 +125,8 @@ drawSprites()
 }else if (gameState === END) {
     gameOver.visible = true;
     //Add code to show restart game instrution in text here
-  
+ 
+
   
     path.velocityX = 0;
     mainCyclist.velocityY = 0;
@@ -140,10 +141,14 @@ drawSprites()
     redCG.setVelocityXEach(0);
     redCG.setLifetimeEach(-1);
 
-    textSize(30)
-    text("Press Space Bar to reset",600, 150 )
+    
     drawSprites()
+    textSize(30)
+    text("PRESS UP ARROW KEY TO RESTASR GAME",600, 150 )
     //write condition for calling reset( )
+    if(KeyDown("up")){
+      reset()
+    }
 }
 }
 
@@ -175,8 +180,15 @@ function redCyclists(){
 }
 
 //create reset function here
+function reset(){
+        gameState = PLAY
+        gameOver.visible = false 
+        mainCyclist.addAnimation("SahilRunning",mainRacerImg1);
+        distance = 0 
 
+      
 
+}
 
 
 
