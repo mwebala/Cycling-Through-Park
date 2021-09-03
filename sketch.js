@@ -144,9 +144,9 @@ drawSprites()
     
     drawSprites()
     textSize(30)
-    text("PRESS UP ARROW KEY TO RESTASR GAME",600, 150 )
+    text("PRESS UP ARROW KEY TO RESTART GAME",400, 250 )
     //write condition for calling reset( )
-    if(KeyDown("up")){
+    if(keyDown("up")){
       reset()
     }
 }
@@ -183,13 +183,10 @@ function redCyclists(){
 function reset(){
         gameState = PLAY
         gameOver.visible = false 
+        pinkCG.destroyEach();
         mainCyclist.addAnimation("SahilRunning",mainRacerImg1);
         distance = 0 
-
+        redCG.destroyEach();
+        yellowCG.destroyEach();
       
-
 }
-
-
-
-
